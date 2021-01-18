@@ -1,5 +1,7 @@
 import './App.less'
 import Map from './pages/Map'
+import Trend from './pages/Trend'
+import TopTen from './pages/TopTen'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 const App = (props) => {
@@ -39,6 +41,8 @@ const App = (props) => {
   return (
     <div className='container'>
       <Map foreignData={foreignData} chinaData={chinaData} />
+      <Trend foreignData={foreignData} chinaData={chinaData} />
+      {foreignData && chinaData ? <TopTen foreignData={foreignData} chinaData={chinaData} /> : null}
     </div>
   )
 }

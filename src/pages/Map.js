@@ -1,20 +1,17 @@
 import React, { useState } from 'react'
 import Header from '../components/Map/Header'
 import Number from '../components/Map/Number'
+import WorldMap from '../components/Map/WorldMap'
 const Map = (props) => {
-  const {foreignData} = props
+  const { foreignData, chinaData } = props
   // console.log(foreignData)
   return (
     <div className='brief'>
-      <Header foreignData={foreignData}/>
-      <Number foreignData={foreignData}/>
-      <div className='map'>
-        <div className='map_info'></div>
-        <div className='map_tab'>
-          <span className='cur'>累计确诊</span>
-          <span>现有确诊</span>
-        </div>
-      </div>
+      <Header foreignData={foreignData} />
+      <Number foreignData={foreignData} />
+      {foreignData && chinaData ? (
+        <WorldMap foreignData={foreignData} chinaData={chinaData} />
+      ) : null}
     </div>
   )
 }
